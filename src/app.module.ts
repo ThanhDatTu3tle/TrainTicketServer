@@ -11,13 +11,13 @@ import { SlotModule } from './slot/slot.module';
 import { TripModule } from './trip/trip.module';
 import { TicketModule } from './ticket/ticket.module';
 import { CabinModule } from './cabin/cabin.module';
-import { StationtrainModule } from './stationtrain/stationtrain.module';
 import { CabinslotModule } from './cabinslot/cabinslot.module';
+import { BookingModule } from './booking/booking.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({ ...config, autoLoadEntities: true }), 
-    TrainModule, StationModule, ScheduleModule, PassengerModule, SlotModule, TripModule, TicketModule, CabinModule, StationtrainModule, CabinslotModule,
+    TrainModule, StationModule, ScheduleModule, PassengerModule, SlotModule, TripModule, TicketModule, CabinModule, CabinslotModule, BookingModule,
   ],
   controllers: [AppController],
   providers: [AppService],

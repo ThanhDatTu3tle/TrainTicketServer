@@ -3,7 +3,7 @@ import { Chuyentau } from "./Chuyentau";
 import { NhagaTau } from "./NhagaTau";
 import { Thongtintoa } from "./Thongtintoa";
 
-@Index("PK__THONGTIN__71258F35FF44B6D0", ["maSoTau"], { unique: true })
+// @Index("PK__THONGTIN__71258F35EBBADE23", ["maSoTau"], { unique: true })
 @Entity("THONGTINTAU", { schema: "dbo" })
 export class Thongtintau {
   @Column("nvarchar", { primary: true, name: "MaSoTau", length: 4 })
@@ -18,7 +18,7 @@ export class Thongtintau {
   @OneToMany(() => Chuyentau, (chuyentau) => chuyentau.maSoTau)
   chuyentaus: Chuyentau[];
 
-  @OneToMany(() => NhagaTau, (nhagaTau) => nhagaTau.maSoTau2)
+  @OneToMany(() => NhagaTau, (nhagaTau) => nhagaTau.maSoTau)
   nhagaTaus: NhagaTau[];
 
   @OneToMany(() => Thongtintoa, (thongtintoa) => thongtintoa.maSoTau)

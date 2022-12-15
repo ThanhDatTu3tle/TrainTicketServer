@@ -40,8 +40,16 @@ export class CabinController {
   //   return this.cabinService.update(+id, updateCabinDto);
   // }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.cabinService.remove(+id);
-  // }
+  @Delete(':maSoTau')
+  async remove(@Param('maSoTau') maSoTau: string, @Res() res: Response,) {
+    if (!maSoTau) {
+      res.status(404).json({ success: false, message: 'Gãy!!!' });
+    }
+    try {
+      const deleteProduct = await this.cabinService.remove(maSoTau);
+      res.status(200).json({ success: true, body: deleteProduct });
+    } catch (err) {
+      res.status(400).json({ success: false, message: err });
+    }
+  }
 }

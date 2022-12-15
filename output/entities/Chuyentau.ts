@@ -11,7 +11,7 @@ import { Lichtrinh } from "./Lichtrinh";
 import { Phieudatcho } from "./Phieudatcho";
 import { Vechuyentau } from "./Vechuyentau";
 
-@Index("PK__CHUYENTA__8EB73BB0AB19C04A", ["maChuyenTau"], { unique: true })
+// @Index("PK__CHUYENTA__8EB73BB0E029758F", ["maChuyenTau"], { unique: true })
 @Entity("CHUYENTAU", { schema: "dbo" })
 export class Chuyentau {
   @Column("nvarchar", { primary: true, name: "MaChuyenTau", length: 10 })

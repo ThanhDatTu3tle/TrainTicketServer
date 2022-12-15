@@ -74,7 +74,14 @@ export class TripService {
   //   return `This action updates a #${id} trip`;
   // }
 
-  // remove(id: number) {
-  //   return `This action removes a #${id} trip`;
-  // }
+  async remove(maChuyenTau: string) {
+    try {
+      const findOne = await this.tripRepository.findOneOrFail({
+        where: { maChuyenTau },
+      });
+      return await this.tripRepository.remove(findOne);
+    } catch (err) {
+      throw err;
+    }
+  }
 }

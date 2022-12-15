@@ -40,8 +40,16 @@ export class TripController {
   //   return this.tripService.update(+id, updateTripDto);
   // }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.tripService.remove(+id);
-  // }
+  @Delete(':maChuyenTau')
+  async remove(@Param('maChuyenTau') maChuyenTau: string, @Res() res: Response,) {
+    if (!maChuyenTau) {
+      res.status(404).json({ success: false, message: 'Gãy!!!' });
+    }
+    try {
+      const deleteProduct = await this.tripService.remove(maChuyenTau);
+      res.status(200).json({ success: true, body: deleteProduct });
+    } catch (err) {
+      res.status(400).json({ success: false, message: err });
+    }
+  }
 }

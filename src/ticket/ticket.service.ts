@@ -99,7 +99,14 @@ export class TicketService {
   //   return `This action updates a #${id} ticket`;
   // }
 
-  // remove(id: number) {
-  //   return `This action removes a #${id} ticket`;
-  // }
+  async remove(maVeChuyenTau: string) {
+    try {
+      const findOne = await this.ticketRepository.findOneOrFail({
+        where: { maVeChuyenTau },
+      });
+      return await this.ticketRepository.remove(findOne);
+    } catch (err) {
+      throw err;
+    }
+  }
 }

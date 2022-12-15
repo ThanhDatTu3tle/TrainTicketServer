@@ -40,8 +40,16 @@ export class TicketController {
   //   return this.ticketService.update(+id, updateTicketDto);
   // }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.ticketService.remove(+id);
-  // }
+  @Delete(':maVeChuyenTau')
+  async remove(@Param('maVeChuyenTau') maVeChuyenTau: string, @Res() res: Response,) {
+    if (!maVeChuyenTau) {
+      res.status(404).json({ success: false, message: 'Gãy!!!' });
+    }
+    try {
+      const deleteProduct = await this.ticketService.remove(maVeChuyenTau);
+      res.status(200).json({ success: true, body: deleteProduct });
+    } catch (err) {
+      res.status(400).json({ success: false, message: err });
+    }
+  }
 }

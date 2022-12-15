@@ -14,9 +14,5 @@ export class Schedule {
   @ApiProperty()
   gioKhoiHanh: Date;
   @ApiProperty()
-  gioKetThuc: Date
-  @ApiProperty()
-  ngayKhoiHanh: Date;
-  @ApiProperty()
-  ngayKetThuc: Date;
+  gioKetThuc: Date;
 }

@@ -24,10 +24,19 @@ const CabinSlotRelations = [
   'maSoGhe',
 ]
 
+const BookingRelations = [
+  'maLichTrinh',
+  'maVeChuyenTau',
+  'maChuyenTau',
+  'maToaGhe',
+]
+
+
 export {
   TripRelations,
   CabinRelations,
   TicketRelations,
   StationTrainRelations,
   CabinSlotRelations,
+  BookingRelations,
 };

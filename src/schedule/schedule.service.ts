@@ -23,8 +23,6 @@ export class ScheduleService {
     newSchedule.tenGaDen = createScheduleDto.tenGaDen;
     newSchedule.gioKhoiHanh = createScheduleDto.gioKhoiHanh;
     newSchedule.gioKetThuc = createScheduleDto.gioKetThuc;
-    newSchedule.ngayKhoiHanh = createScheduleDto.ngayKhoiHanh;
-    newSchedule.ngayKetThuc = createScheduleDto.ngayKetThuc;
 
     await this.scheduleRepository.save(newSchedule);
   }

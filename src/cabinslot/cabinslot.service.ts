@@ -22,7 +22,7 @@ export class CabinslotService {
     private slotRepository: Repository<Slot>
   ) {}
 
-  async create(createCabinslotDto: CreateCabinslotDto) {
+  async create(createCabinslotDto: CreateCabinslotDto): Promise<Cabinslot> {
     try {
       // Foreign key Thongtintoa: cabin
       const cabinBody = createCabinslotDto.maSoToa;
@@ -38,8 +38,9 @@ export class CabinslotService {
 
       // create new order
       const newCabinSlot = this.cabinslotRepository.create();
-      newCabinSlot.maSoToa2 = cabins;
-      newCabinSlot.maSoGhe2 = slots;
+      newCabinSlot.maToaGhe = createCabinslotDto.maToaGhe;
+      newCabinSlot.maSoToa = cabins;
+      newCabinSlot.maSoGhe = slots;
       newCabinSlot.trangThai = createCabinslotDto.trangThai;
 
       await this.cabinslotRepository.save(newCabinSlot);
@@ -48,8 +49,7 @@ export class CabinslotService {
       const findAndReturn = await this.cabinslotRepository.findOneOrFail({
         relations,
         where: { 
-          maSoToa: newCabinSlot.maSoToa,
-          maSoGhe: newCabinSlot.maSoGhe,
+          maToaGhe: newCabinSlot.maToaGhe,
         },
       });
       return findAndReturn;

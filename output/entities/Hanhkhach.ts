@@ -1,7 +1,7 @@
 import { Column, Entity, Index, OneToMany } from "typeorm";
 import { Vechuyentau } from "./Vechuyentau";
 
-@Index("PK__HANHKHAC__A955A0AB3E149B8D", ["cccd"], { unique: true })
+// @Index("PK__HANHKHAC__A955A0ABE3CDAA20", ["cccd"], { unique: true })
 @Entity("HANHKHACH", { schema: "dbo" })
 export class Hanhkhach {
   @Column("char", { primary: true, name: "CCCD", length: 12 })

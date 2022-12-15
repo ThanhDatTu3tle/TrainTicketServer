@@ -9,11 +9,11 @@ import {
 import { Hoadon } from "./Hoadon";
 import { Phieudatcho } from "./Phieudatcho";
 import { Chuyentau } from "./Chuyentau";
-import { Thongtintoa } from "./Thongtintoa";
 import { Lichtrinh } from "./Lichtrinh";
 import { Hanhkhach } from "./Hanhkhach";
+import { Thongtintoa } from "./Thongtintoa";
 
-@Index("PK__VECHUYEN__09C12F48BAC24BAB", ["maVeChuyenTau"], { unique: true })
+// @Index("PK__VECHUYEN__09C12F485E4C6D70", ["maVeChuyenTau"], { unique: true })
 @Entity("VECHUYENTAU", { schema: "dbo" })
 export class Vechuyentau {
   @Column("nvarchar", { primary: true, name: "MaVeChuyenTau", length: 10 })
@@ -41,10 +41,6 @@ export class Vechuyentau {
   @JoinColumn([{ name: "MaChuyenTau", referencedColumnName: "maChuyenTau" }])
   maChuyenTau: Chuyentau;
 
-  @ManyToOne(() => Thongtintoa, (thongtintoa) => thongtintoa.vechuyentaus)
-  @JoinColumn([{ name: "MaSoToa", referencedColumnName: "maSoToa" }])
-  maSoToa: Thongtintoa;
-
   @ManyToOne(() => Lichtrinh, (lichtrinh) => lichtrinh.vechuyentaus)
   @JoinColumn([{ name: "MaLichTrinh", referencedColumnName: "maLichTrinh" }])
   maLichTrinh: Lichtrinh;
@@ -52,4 +48,8 @@ export class Vechuyentau {
   @ManyToOne(() => Hanhkhach, (hanhkhach) => hanhkhach.vechuyentaus)
   @JoinColumn([{ name: "CCCD", referencedColumnName: "cccd" }])
   cccd: Hanhkhach;
+
+  @ManyToOne(() => Thongtintoa, (thongtintoa) => thongtintoa.vechuyentaus)
+  @JoinColumn([{ name: "MaSoToa", referencedColumnName: "maSoToa" }])
+  maSoToa: Thongtintoa;
 }

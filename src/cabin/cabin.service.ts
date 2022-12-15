@@ -65,7 +65,14 @@ export class CabinService {
   //   return `This action updates a #${id} cabin`;
   // }
 
-  // remove(id: number) {
-  //   return `This action removes a #${id} cabin`;
-  // }
+  async remove(maSoToa: string) {
+    try {
+      const findOne = await this.cabinRepository.findOneOrFail({
+        where: { maSoToa },
+      });
+      return await this.cabinRepository.remove(findOne);
+    } catch (err) {
+      throw err;
+    }
+  }
 }

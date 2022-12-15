@@ -3,7 +3,7 @@ import { Chuyentau } from "./Chuyentau";
 import { Phieudatcho } from "./Phieudatcho";
 import { Vechuyentau } from "./Vechuyentau";
 
-@Index("PK__LICHTRIN__32E7201D7D521CDE", ["maLichTrinh"], { unique: true })
+// @Index("PK__LICHTRIN__32E7201D982D810D", ["maLichTrinh"], { unique: true })
 @Entity("LICHTRINH", { schema: "dbo" })
 export class Lichtrinh {
   @Column("nvarchar", { primary: true, name: "MaLichTrinh", length: 10 })
@@ -21,17 +21,11 @@ export class Lichtrinh {
   @Column("nvarchar", { name: "TenGaDen", length: 50 })
   tenGaDen: string;
 
-  @Column("time", { name: "GioKhoiHanh" })
+  @Column("smalldatetime", { name: "GioKhoiHanh" })
   gioKhoiHanh: Date;
 
-  @Column("time", { name: "GioKetThuc" })
+  @Column("smalldatetime", { name: "GioKetThuc" })
   gioKetThuc: Date;
-
-  @Column("smalldatetime", { name: "NgayKhoiHanh" })
-  ngayKhoiHanh: Date;
-
-  @Column("smalldatetime", { name: "NgayKetThuc" })
-  ngayKetThuc: Date;
 
   @OneToMany(() => Chuyentau, (chuyentau) => chuyentau.maLichTrinh)
   chuyentaus: Chuyentau[];

@@ -7,7 +7,7 @@ const config: SqlServerConnectionOptions = ({
   port: 1433, 
   username: 'sa',
   password: 'dat27032001',
-  database: 'BanThucAnNhanh',
+  database: 'BanVeTau',
   // entities: ['dist/**/*.entity{.ts,.js}'],
   entities: ['dist/output/entities/*js'], 
   synchronize: true,
