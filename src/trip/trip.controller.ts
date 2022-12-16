@@ -30,10 +30,15 @@ export class TripController {
     return this.tripService.findAll();
   }
 
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.tripService.findOne(+id);
-  // }
+  @Get(':maChuyenTau')
+  async findOne(@Param('maChuyenTau') maChuyenTau: string) {
+    return this.tripService.findOne(maChuyenTau);
+  }
+
+  @Get(':maLichTrinh')
+  async findSchedule(@Param('maLichTrinh') maLichTrinh: string) {
+    return this.tripService.findSchedule(maLichTrinh);
+  }
 
   // @Patch(':id')
   // update(@Param('id') id: string, @Body() updateTripDto: UpdateTripDto) {

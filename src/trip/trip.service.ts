@@ -66,9 +66,23 @@ export class TripService {
     return findAll;
   }
 
-  // findOne(id: number) {
-  //   return `This action returns a #${id} trip`;
-  // }
+  async findOne(maChuyenTau: string) {
+    const findOne = await this.tripRepository.find({ 
+      relations,
+    })
+    const trip = await this.tripRepository.find();
+
+    return findOne;
+  }
+
+  async findSchedule(maLichTrinh: string) {
+    const schedule = await this.tripRepository.find({ 
+      relations,
+    })
+    const trip = await this.tripRepository.find();
+
+    return schedule;
+  }
 
   // update(id: number, updateTripDto: UpdateTripDto) {
   //   return `This action updates a #${id} trip`;
